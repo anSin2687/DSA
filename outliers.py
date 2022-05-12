@@ -19,4 +19,4 @@ def GetOutliers(col):
         return "There are no Outliers"
 
 
-GetOutliers(housing.price)
+
