@@ -31,8 +31,41 @@ def bubble_sort(array,ascending = True):
 
 
 
+def selection_sort(array,ascending = True):
+    if ascending: 
+        for i in range(len(array)):
+            min_index = i
+            for j in range(i+1,len(array)):
+                if array[min_index] < array[j]:
+                    min_index = j
+            
+            array[i],array[min_index] = array[min_index],array[i]
+    else:
+        for i in range(len(array)):
+            min_index = i
+            for j in range(i+1,len(array)):
+                if array[min_index] > array[j]:
+                    min_index = j
+        
+            array[i],array[min_index] = array[min_index],array[i]
+         
+    return array
+    
+    
+def insertion_sort(array):
+    for i in range(1,len(array)):
+        key = array[i]
+        j = i-1
+        while j >= 0 and key < array[j]:
+            print(array[i])
+            array[j+1] = array[j]
+            j -= 1
+        array[j+1] = key
+    return array
 
-bubble_sort(nums,ascending=False)
-print(nums)
+                
+    
+result = insertion_sort(nums)
+print(result)
 
 
