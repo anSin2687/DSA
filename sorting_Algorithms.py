@@ -1,4 +1,4 @@
-nums = [10,30,1,4,46,89]
+nums = [10,30,1,4,46,89,32]
 print(nums)
 
 ## Bubble Sorting 
@@ -63,9 +63,38 @@ def insertion_sort(array):
         array[j+1] = key
     return array
 
-                
     
-result = insertion_sort(nums)
-print(result)
+def merge_sort(array):
+    if len(array) > 1:
+        
+        mid = len(array)//2
+        larr = array[:mid]
+        rarr = array[mid:]
+        
+        merge_sort(larr)
+        merge_sort(rarr)
+        print("The broken arrays",larr,rarr)
+        i = j = k = 0
+        while i < len(larr) and j < len(rarr):
+            if larr[i] < rarr[j]:
+                array[k] = larr[i]
+                i += 1
+            else:
+                array[k] = rarr[j]
+                j += 1
+            k += 1
+        
+        while i < len(larr):
+            array[k] = larr[i]
+            i+=1
+            k+=1
+        
+        while j < len(rarr):
+            array[k] = rarr[j]
+            j+=1
+            k+=1 
+    
+merge_sort(nums)
+print(nums)
 
 
